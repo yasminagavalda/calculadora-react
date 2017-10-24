@@ -19,6 +19,11 @@ export default class Calculator extends React.Component {
 		this.setState({value: finalValue})
 	}
 
+	calculate() {
+		const result = eval(this.state.value)
+		this.setState({value: result})
+	}
+
 	render() {
 		return (
 			<div className="calculator">
@@ -42,7 +47,7 @@ export default class Calculator extends React.Component {
 					<div className="key-row">
 						<Key value="0" onPress={ (k) => this.onKeyPress(k) }/>
 						<Key value="+" onPress={ (k) => this.onKeyPress(k) }/>
-						<Key value="=" onPress={ (k) => this.onKeyPress(k) }/>
+						<Key value="=" onPress={ (k) => this.calculate(k) }/>
 					</div>
 				</div>
 			</div>
